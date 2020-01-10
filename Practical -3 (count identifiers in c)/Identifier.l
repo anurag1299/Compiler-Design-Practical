@@ -5,14 +5,14 @@ int yylex(void);
 %}
 %%
 
-"int"|"float"|"char"|"double"|"void" {flag=1; printf("%s",yytext);}
-";"                              {flag=0; printf("%s",yytext);}
-"="                                {if(flag!=0) {flag=0;} printf("%s",yytext);}
-"("                              {paramFlag = 1; printf("%s",yytext);}
-")"                               {paramFlag = 0; printf("%s",yytext);}
-","                                {if(paramFlag!=0){flag=0;} printf("%s",yytext);}
-[_a-zA-Z][_a-zA-Z0-9]*        {if(flag!=0)id++;printf("%s",yytext);}
-@                             return 0;
+"int"|"float"|"char"|"double"|"void"    {flag=1; printf("%s",yytext);}
+";"                                     {flag=0; printf("%s",yytext);}
+"="                                     {if(flag!=0) {flag=0;} printf("%s",yytext);}
+"("                                     {paramFlag = 1; printf("%s",yytext);}
+")"                                     {paramFlag = 0; printf("%s",yytext);}
+","                                     {if(paramFlag!=0){flag=0;} printf("%s",yytext);}
+[_a-zA-Z][_a-zA-Z0-9]*                  {if(flag!=0)id++;printf("%s",yytext);}
+@                                       return 0;
 
 %%
 
