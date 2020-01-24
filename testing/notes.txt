@@ -5,3 +5,7 @@
 
 
 nm a.out (show the symbol table )
+
+
+-Wall option to produce all warnings 
+
