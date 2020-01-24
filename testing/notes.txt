@@ -2,3 +2,6 @@
 
 -objdump -d(disassemble) -M(processor) intel(name of processor) -S(intermix source code with assembly) a.out(object file name)
 -objdump -d -M intel -S a.out (get the assembly code of object file)
+
+
+nm a.out (show the symbol table )
