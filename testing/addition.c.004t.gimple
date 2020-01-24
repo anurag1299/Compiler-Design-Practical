@@ -1,0 +1,21 @@
+main (int argc, const char * * argv)
+{
+  int D.2366;
+
+  {
+    int a;
+    int b;
+    int c;
+
+    a = 10;
+    b = 20;
+    c = a + b;
+    printf ("%d", c);
+    D.2366 = 0;
+    return D.2366;
+  }
+  D.2366 = 0;
+  return D.2366;
+}
+
+
