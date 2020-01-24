@@ -9,3 +9,6 @@ nm a.out (show the symbol table )
 
 -Wall option to produce all warnings 
 
+-E (get the pre processor code)
+gcc -E filename.c > filename.i(or any other name if you dont want output on terminal)
+
