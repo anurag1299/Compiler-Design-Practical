@@ -12,3 +12,5 @@ nm a.out (show the symbol table )
 -E (get the pre processor code)
 gcc -E filename.c > filename.i(or any other name if you dont want output on terminal)
 
+-S produce only assembly code
+gcc -S filename.c > filename.s
