@@ -14,3 +14,12 @@ gcc -E filename.c > filename.i(or any other name if you dont want output on term
 
 -S produce only assembly code
 gcc -S filename.c > filename.s
+
+-C produce only compiled code without any linking
+
+-save-temps (produce all intermediate files)
+
+
+-l to link with a shared library
+
+-v print all executed commands
