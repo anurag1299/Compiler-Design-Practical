@@ -23,3 +23,13 @@ gcc -S filename.c > filename.s
 -l to link with a shared library
 
 -v print all executed commands
+
+-ansi (enable support of ISO C89 program)
+
+-D to define compile time macro
+
+-Werror => convert warning to error
+
+provide these gcc options from a file using @
+
+ex gcc addition.c @opt_file
