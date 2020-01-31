@@ -1,0 +1,22 @@
+main (int argc, const char * * argv)
+{
+  int D.3419;
+
+  {
+    int c;
+
+    a = 10;
+    scanf ("%d", &b);
+    a.0_1 = a;
+    b.1_2 = b;
+    c = a.0_1 + b.1_2;
+    printf ("addition = %d", c);
+    printf ("Log = %lf", 2.30258509299404590109361379290930926799774169921875e+0);
+    D.3419 = 0;
+    return D.3419;
+  }
+  D.3419 = 0;
+  return D.3419;
+}
+
+
