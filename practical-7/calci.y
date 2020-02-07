@@ -1,42 +1,49 @@
 %{
-#include<ctype.h>
 #include<stdio.h>
-#define YYSTYPE double
+#include<math.h>
+void yyerror(char *);
 %}
-%token NUM
 
-%left '+' '-'
-%left '*' '/' 
-%right UMINUS
-
-%%
-
-S : S E '\n' { printf("Answer: %g \nEnter:\n", $2); }
-| S '\n'
-|
-| error '\n' { yyerror("Error: Enter once more…\n" );yyerrok; }
-;
-E : E '+' E { $$ = $1 + $3; }
-| E'-'E { $$=$1-$3; }
-| E'*'E { $$=$1*$3; }
-| E'/'E { $$=$1/$3; }
-
-| '('E')' { $$=$2; }
-| '-'E %prec UMINUS { $$= -$2; }
-| NUM
-;
-%%
-
-#include "lex.yy.c"
-
-int main()
+%union
 {
-printf("Enter the expression:");
+double dval;
+}
+%token <dval> NUM
+%token SIN COS TAN SQRT
+%right '~'
+%left '+' '-'
+
+%left '*' '/'
+%type <dval> expression
+
+%%
+program: program statement'\n'
+|
+;
+
+statement:
+expression { printf("%lf\n", $1); }
+;
+expression:
+NUM
+| expression '+' expression {$$ = $1 + $3;}
+| expression '-' expression {$$ = $1 - $3;}
+| expression '*' expression {$$ = $1 * $3;}
+| expression '/' expression {$$ = $1 / $3;}
+| '~' expression {$$ = -(1) * $2;}
+| SQRT'('expression')' {$$ = sqrt( $3 );}
+| SIN'('expression')' {$$ = sin ($3*3.142/180);}
+| COS'('expression')' {$$ = cos ($3*3.142/180);}
+| TAN'('expression')' {$$ = tan ($3*3.142/180);}
+;
+%%
+
+main()
+{
+printf("\nEnter the expression:\n");
 yyparse();
 }
-
-yyerror (char * s)
+void yyerror(char *s)
 {
-printf ("% s \n", s);
-exit (1);
+fprintf(stderr,"%s\n",s);
 }

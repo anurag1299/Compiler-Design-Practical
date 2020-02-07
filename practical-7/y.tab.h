@@ -50,16 +50,32 @@ extern int yydebug;
   enum yytokentype
   {
     NUM = 258,
-    UMINUS = 259
+    SIN = 259,
+    COS = 260,
+    TAN = 261,
+    SQRT = 262
   };
 #endif
 /* Tokens.  */
 #define NUM 258
-#define UMINUS 259
+#define SIN 259
+#define COS 260
+#define TAN 261
+#define SQRT 262
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+
+union YYSTYPE
+{
+#line 8 "calci.y" /* yacc.c:1921  */
+
+double dval;
+
+#line 76 "y.tab.h" /* yacc.c:1921  */
+};
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

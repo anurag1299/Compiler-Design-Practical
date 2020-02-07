@@ -4,15 +4,21 @@
 void yyerror(char *);
 %}
 
-DIGIT [0-9]+\.?|[0-9]*\.[0-9]+
-
-%option noyywrap
-
+%%
+(([0-9]+)|([0-9]*\.[0-9]+)) {
+yylval.dval=atof(yytext);
+return NUM;
+}
+[+-/*\n,~()] {return (*yytext);}
+sin return SIN;
+cos return COS;
+tan return TAN;
+sqrt return SQRT;
+exit exit(0);
+[ \t]
 %%
 
-[ ]
-{DIGIT} { yylval=atof(yytext); return NUM;}
-\n|. {return yytext[0];}
-
-%%
-
+int yywrap(void)
+{
+return 1;
+}
