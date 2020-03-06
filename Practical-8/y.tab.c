@@ -442,7 +442,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    25,    25,    26,    30,    32,    36,    43
+       0,    25,    25,    26,    30,    32,    36,    46
 };
 #endif
 
@@ -1223,21 +1223,24 @@ yyreduce:
         case 6:
 #line 37 "thermo.y" /* yacc.c:1652  */
     {
-                printf("\tHeat turned on or off\n");
+                if(yyvsp[0])
+                        printf("\tHeat turned on\n");
+                else
+                        printf("\tHeat turned off\n");
         }
-#line 1229 "y.tab.c" /* yacc.c:1652  */
+#line 1232 "y.tab.c" /* yacc.c:1652  */
     break;
 
   case 7:
-#line 44 "thermo.y" /* yacc.c:1652  */
+#line 47 "thermo.y" /* yacc.c:1652  */
     {
-                printf("\tTemperature set\n");
+                printf("\tTemperature set to %d\n",yyvsp[0]);
         }
-#line 1237 "y.tab.c" /* yacc.c:1652  */
+#line 1240 "y.tab.c" /* yacc.c:1652  */
     break;
 
 
-#line 1241 "y.tab.c" /* yacc.c:1652  */
+#line 1244 "y.tab.c" /* yacc.c:1652  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1468,4 +1471,4 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 48 "thermo.y" /* yacc.c:1918  */
+#line 51 "thermo.y" /* yacc.c:1918  */
